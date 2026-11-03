@@ -11,23 +11,38 @@
 .shell{max-width:780px;min-height:100vh;margin:auto;background:var(--paper);border-inline:1px solid #f0e2d5;padding:26px 26px 34px;display:flex;flex-direction:column;align-items:center;text-align:center}
 .eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:#b49b88;margin:0 0 9px}h1{font-size:clamp(2rem,6vw,3.2rem);line-height:1.05;letter-spacing:-.04em;margin:0;font-weight:800}.subtitle{margin:9px 0 0;color:#a58d7b;font-size:1.08rem}
 .stage{position:relative;width:min(100%,440px);height:285px;margin:8px auto 0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:2px}
-.speech{position:absolute;top:8px;right:0;z-index:3;max-width:215px;padding:13px 17px;background:#fff;border:1px solid #efdfd1;border-radius:23px 23px 8px 23px;box-shadow:0 8px 24px #8b6d5010;font-size:1rem;font-weight:750;line-height:1.35;color:#625247}
-.speech:after{content:"";position:absolute;right:22px;bottom:-8px;width:14px;height:14px;background:#fff;border-right:1px solid #efdfd1;border-bottom:1px solid #efdfd1;transform:rotate(45deg)}
-.mascot{width:250px;height:260px;overflow:visible;filter:drop-shadow(0 7px 0 #eadac7);animation:bounce 2.2s ease-in-out infinite}
+.speech{position:absolute;top:8px;right:0;z-index:3;max-width:215px;padding:13px 17px;background:#f1f1f1;border:1px solid #d8d8d8;border-radius:23px 23px 8px 23px;box-shadow:0 8px 24px #6f6f6f18;font-size:1rem;font-weight:750;line-height:1.35;color:#625247}
+.speech:after{content:"";position:absolute;left:22px;bottom:-8px;width:14px;height:14px;background:#f1f1f1;border-left:1px solid #d8d8d8;border-bottom:1px solid #d8d8d8;transform:rotate(-45deg)}
+.mascot{width:250px;height:260px;overflow:visible;filter:drop-shadow(0 7px 0 #eadac7);animation:bounce 2.2s ease-in-out infinite;position:relative;z-index:1}
+.mascot-shadow{position:absolute;bottom:8px;left:50%;width:105px;height:13px;border-radius:50%;background:rgba(75,65,58,.22);filter:blur(3px);transform:translateX(-50%);animation:shadowPulse 2.2s ease-in-out infinite;z-index:0}
+.eye-sparkle{fill:#fff;stroke:none;pointer-events:none}
 .head-motion{transform-box:fill-box;transform-origin:50% 70%;animation:headbob 3s ease-in-out infinite}.ear-left,.ear-right{transform-box:fill-box;transform-origin:50% 85%;animation:earwig 3.5s ease-in-out infinite}.eye{transform-box:fill-box;transform-origin:center;animation:blink 4.2s infinite}
-@keyframes bounce{0%,100%{transform:translateY(3px)}50%{transform:translateY(-8px)}}@keyframes headbob{0%,100%{rotate:-1deg}50%{rotate:1.5deg}}@keyframes earwig{0%,100%{rotate:0deg}50%{rotate:4deg}}@keyframes blink{0%,42%,47%,100%{transform:scaleY(1)}44%{transform:scaleY(.12)}}
+@keyframes shadowPulse{0%,100%{opacity:.7;transform:translateX(-50%) scaleX(1)}50%{opacity:.35;transform:translateX(-50%) scaleX(.72)}}@keyframes bounce{0%,100%{transform:translateY(3px)}50%{transform:translateY(-8px)}}@keyframes headbob{0%,100%{rotate:-1deg}50%{rotate:1.5deg}}@keyframes earwig{0%,100%{rotate:0deg}50%{rotate:4deg}}@keyframes blink{0%,42%,47%,100%{transform:scaleY(1)}44%{transform:scaleY(.12)}}
 .countdown{display:flex;align-items:baseline;justify-content:center;gap:14px;margin:0 0 10px}.days{font-size:clamp(5rem,18vw,7rem);line-height:.9;font-weight:800;letter-spacing:-.07em;color:#765f4d}.days-label{font-size:1.25rem;font-weight:700;color:#a88c76}
 .progress-wrap{width:min(100%,540px);margin:8px 0 16px}.progress-head{display:flex;justify-content:space-between;gap:12px;font-size:.85rem;color:#a18a79;margin-bottom:10px}
 .dots{display:grid;grid-template-columns:repeat(10,minmax(12px,1fr));gap:9px;align-items:center;justify-items:center;padding:4px 0}.dot{width:15px;height:15px;border-radius:50%;background:var(--dot);border:1px solid #a88a72;position:relative}.dot.done{background:var(--done);border-color:#d8c7b7}.dot.done:after{content:"";position:absolute;left:1px;right:1px;top:6px;height:2px;background:#8f7b69;transform:rotate(-38deg);border-radius:2px}.dot.today{outline:2px solid #8daab9;outline-offset:3px}
 .controls{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:10px}button,input{font:inherit}button{border:1px solid #dfcbbb;background:#fffaf5;color:#6f5b4b;padding:10px 15px;border-radius:999px;cursor:pointer}button:hover{background:#f8eee5}button:focus-visible{outline:3px solid #a8c5d2;outline-offset:2px}
 .settings{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;color:#a18a79;font-size:.9rem;margin-top:14px}input[type=date]{border:1px solid #e5d4c5;border-radius:10px;padding:8px;background:white;color:#6f5b4b}.footer{margin-top:20px;font-size:.78rem;color:#b6a291}
 @media(max-width:480px){.shell{padding:22px 15px 30px}.stage{height:260px;width:100%}.speech{right:0;top:3px;max-width:165px;font-size:.88rem;padding:11px 13px}.mascot{width:215px;height:235px}.dots{grid-template-columns:repeat(7,minmax(12px,1fr));gap:8px}.dot{width:12px;height:12px}.dot.done:after{top:5px}}
+/* Desktop app sizing: fill the app window and fit content to its height. */
+html{min-height:100%;background:var(--paper)}
+body{min-height:100vh;min-height:100dvh;background:var(--paper);overflow:auto}
+.shell{width:100%;max-width:none;min-height:100vh;min-height:100dvh;margin:0;border:0;padding:clamp(12px,2.5vh,26px) clamp(14px,3vw,30px) clamp(14px,2.5vh,28px)}
+.stage{height:clamp(150px,32vh,285px);width:min(100%,440px);margin-top:clamp(2px,1vh,8px)}
+.mascot{height:100%;width:auto;max-width:75%;}
+.speech{max-width:min(215px,45%);font-size:clamp(.78rem,1.8vh,1rem);padding:clamp(8px,1.5vh,13px) clamp(10px,1.8vw,17px)}
+.countdown{margin-bottom:clamp(5px,1.2vh,10px)}
+.days{font-size:clamp(4rem,15vh,7rem)}
+.progress-wrap{margin:clamp(4px,1vh,8px) 0 clamp(8px,1.8vh,16px)}
+.controls{margin-top:clamp(4px,1.2vh,10px)}
+.footer{margin-top:clamp(8px,2vh,20px)}
+@media(max-height:650px){.eyebrow{margin-bottom:4px}h1{font-size:clamp(1.7rem,5vh,2.5rem)}.subtitle{margin-top:4px;font-size:.95rem}.stage{height:clamp(125px,27vh,190px)}.mascot{max-width:60%}.progress-head{margin-bottom:5px}.dot{width:12px;height:12px}.dots{gap:6px}.footer{margin-top:8px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body><main class="shell">
 <p class="eyebrow">A little reminder for you</p><h1>Little Bear Countdown</h1><p class="subtitle">One day at a time. You’re getting there.</p>
-<section class="stage" aria-label="Cheerful animated animal companion"><div class="speech" id="speech" aria-live="polite">You’ve got this, one little step at a time!</div><svg class="mascot" id="mascot" viewBox="0 0 260 250" role="img" aria-label="A cute smiling animal head"></svg></section>
+<section class="stage" aria-label="Cheerful animated animal companion"><div class="speech" id="speech" aria-live="polite">You’ve got this, one little step at a time!</div><div class="mascot-shadow" aria-hidden="true"></div><svg class="mascot" id="mascot" viewBox="0 0 260 250" role="img" aria-label="A cute smiling animal head"></svg></section>
 <div class="countdown"><span class="days" id="days">29</span><span class="days-label">days to go</span></div>
 <section class="progress-wrap"><div class="progress-head"><span id="progressText">You’ve made it through 0 days</span><span id="leftText">29 left</span></div><div class="dots" id="dots" aria-label="Countdown day tracker"></div></section>
 <div class="controls"><button id="editDate" type="button">Change countdown date</button><button id="newLine" type="button">Hear another cheer</button></div>
@@ -55,7 +70,7 @@ function face(type){
  if(type==="cat")ears=`<g class="ear-left"><path d="M48 105 L52 22 Q56 8 72 25 L111 68Z" fill="${p.fur}" stroke="#29231f" stroke-width="5"/><path d="M65 62 L64 35 L88 65Z" fill="${p.inner}"/></g><g class="ear-right"><path d="M149 68 L188 25 Q204 8 208 22 L212 105Z" fill="${p.fur}" stroke="#29231f" stroke-width="5"/><path d="M172 65 L197 35 L198 62Z" fill="${p.inner}"/></g>`;
  if(type==="dog")ears=`<g class="ear-left"><path d="M66 47 Q25 33 31 92 Q34 131 71 123 L89 69Z" fill="${p.fur}" stroke="#29231f" stroke-width="5"/></g><g class="ear-right"><path d="M194 47 Q235 33 229 92 Q226 131 189 123 L171 69Z" fill="${p.fur}" stroke="#29231f" stroke-width="5"/></g>`;
  let muzzle=type==="cat"?`<path d="M112 151 Q130 142 148 151 Q145 171 130 174 Q115 171 112 151Z" fill="${p.nose}"/><path d="M130 173 V183 M130 183 Q115 195 103 184 M130 183 Q145 195 157 184" fill="none" stroke="#29231f" stroke-width="4" stroke-linecap="round"/>`:`<ellipse cx="130" cy="158" rx="43" ry="31" fill="${p.muzzle}" stroke="#29231f" stroke-width="3.5"/><path d="M117 151 Q130 140 143 151 Q140 163 130 164 Q120 163 117 151Z" fill="${p.nose}" stroke="#29231f" stroke-width="3"/><path d="M130 164 V177 M130 177 Q115 190 101 178 M130 177 Q145 190 159 178" fill="none" stroke="#29231f" stroke-width="4" stroke-linecap="round"/>`;
- return `<g class="head-motion">${ears}<path d="M39 128 Q37 63 91 44 Q130 28 169 44 Q223 63 221 128 Q219 202 130 211 Q41 202 39 128Z" fill="${p.fur}" stroke="#29231f" stroke-width="5"/><ellipse cx="98" cy="121" rx="11" ry="15" fill="#29231f" class="eye"/><ellipse cx="162" cy="121" rx="11" ry="15" fill="#29231f" class="eye"/><ellipse cx="78" cy="151" rx="14" ry="8" fill="#f0a7a9" opacity=".6"/><ellipse cx="182" cy="151" rx="14" ry="8" fill="#f0a7a9" opacity=".6"/>${muzzle}<path d="M102 205 Q130 220 158 205" fill="none" stroke="#29231f" stroke-width="4" stroke-linecap="round"/></g>`;
+ return `<g class="head-motion">${ears}<path d="M39 128 Q37 63 91 44 Q130 28 169 44 Q223 63 221 128 Q219 202 130 211 Q41 202 39 128Z" fill="${p.fur}" stroke="#29231f" stroke-width="5"/><ellipse cx="98" cy="121" rx="11" ry="15" fill="#29231f" class="eye"/><ellipse cx="162" cy="121" rx="11" ry="15" fill="#29231f" class="eye"/><circle cx="94" cy="116" r="3.5" class="eye-sparkle"/><circle cx="158" cy="116" r="3.5" class="eye-sparkle"/><ellipse cx="78" cy="151" rx="14" ry="8" fill="#f0a7a9" opacity=".6"/><ellipse cx="182" cy="151" rx="14" ry="8" fill="#f0a7a9" opacity=".6"/>${muzzle}<path d="M102 205 Q130 220 158 205" fill="none" stroke="#29231f" stroke-width="4" stroke-linecap="round"/></g>`;
 }
 function renderAnimal(){const type=animals[animalIndex%animals.length];$("mascot").innerHTML=face(type);$("mascot").setAttribute("aria-label",`A cute smiling ${type} head`);$("speech").textContent=cheers[cheerIndex%cheers.length];}
 function render(){
