@@ -2,7 +2,7 @@
 A cheerleading count down that helps me get through hard days
 
 __________________________________________________________________________________________________
-# Little Bear Countdown
+
 
 ## Installation & Troubleshooting Guide
 
